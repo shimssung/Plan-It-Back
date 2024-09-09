@@ -1,12 +1,13 @@
-package com.example.calendartodo_pjt.bbs.dao;
+package com.example.calendartodo_pjt.Event.dao;
 
 
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
-import com.example.calendartodo_pjt.bbs.domain.EventRequestDTO;
-import com.example.calendartodo_pjt.bbs.domain.EventResponseDTO;
+
+import com.example.calendartodo_pjt.Event.domain.EventRequestDTO;
+import com.example.calendartodo_pjt.Event.domain.EventResponseDTO;
 
 
 @Mapper

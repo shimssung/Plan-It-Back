@@ -1,4 +1,4 @@
-package com.example.calendartodo_pjt.bbs.service;
+package com.example.calendartodo_pjt.Event.service;
 
 
 import java.util.List;
@@ -7,9 +7,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.calendartodo_pjt.bbs.dao.EventMapper;
-import com.example.calendartodo_pjt.bbs.domain.EventRequestDTO;
-import com.example.calendartodo_pjt.bbs.domain.EventResponseDTO;
+import com.example.calendartodo_pjt.Event.dao.EventMapper;
+import com.example.calendartodo_pjt.Event.domain.EventRequestDTO;
+import com.example.calendartodo_pjt.Event.domain.EventResponseDTO;
 
 
 @Service

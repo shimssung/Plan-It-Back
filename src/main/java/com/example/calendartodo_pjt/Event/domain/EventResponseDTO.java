@@ -1,4 +1,4 @@
-package com.example.calendartodo_pjt.bbs.domain;
+package com.example.calendartodo_pjt.Event.domain;
 
 import java.time.LocalDate;
 
