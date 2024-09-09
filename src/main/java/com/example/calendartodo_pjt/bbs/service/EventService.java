@@ -46,46 +46,4 @@ public class EventService {
         eventMapper.deleteRow(map);
     }
 
-    // public BbsResponseDTO find(Map<String, Integer> map) {
-    //     System.out.println("debug >>> service find " + bbsMapper);
-
-    //     BbsResponseDTO result = bbsMapper.findRow(map);
-    //     List<CommentResponseDTO> list = bbsMapper.findByIdComment(map);
-    //     result.setComments(list);
-    //     return result;
-    // }
-
-    // public void createComment(CommentRequestDTO params) {
-    //     System.out.println("debug >>> service commentsave " + bbsMapper);
-    //     bbsMapper.insertCommentRow(params);
-    // }
-
-    // public List<CommentResponseDTO> findComment(Map<String, Integer> map) {
-    //     System.out.println("debug >>> service findComment " + bbsMapper);
-    //     List<CommentResponseDTO> result = bbsMapper.findByIdComment(map);
-    //     System.out.println("debug >>> findComment reslut " + result);
-    //     return result;
-    // }
-
-    // public void bbsdelete(Map<String, Integer> map) {
-    //     System.out.println("debug >>> service bbsdelete " + bbsMapper);
-    //     bbsMapper.bbsdeleteRow(map);
-    // }
-
-    // public BbsResponseDTO bbsfind(Map<String, Integer> map) {
-    //     System.out.println("debug >>> service findbbs " + bbsMapper);
-    //     BbsResponseDTO result = bbsMapper.bbsfindRow(map);
-    //     return result ;
-    // }
-
-    // public void update(BbsRequestDTO params) {
-    //     System.out.println("debug >>> service bbsupdate " + bbsMapper);
-    //     bbsMapper.updateRow(params);
-    //     System.out.println("되니");
-        
-    // }
-
-
-
-    
 }

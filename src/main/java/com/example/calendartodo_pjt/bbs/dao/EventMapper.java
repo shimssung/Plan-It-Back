@@ -22,15 +22,4 @@ public interface EventMapper {
 
     public void deleteRow(Map<String, Integer> map);
 
-    // public BbsResponseDTO findRow(Map<String, Integer> map) ;
-
-    // public List<CommentResponseDTO> findByIdComment(Map<String, Integer> map) ;
-
-    // public void insertCommentRow(CommentRequestDTO params);
-
-    // public void bbsdeleteRow(Map<String, Integer> map);
-
-    // public BbsResponseDTO bbsfindRow(Map<String, Integer> map);
-
-    // public void updateRow(BbsRequestDTO params);
 }
