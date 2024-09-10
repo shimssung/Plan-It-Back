@@ -17,7 +17,7 @@ public class webConfig implements WebMvcConfigurer{
                 // 리액트에서 GET으로 접근하는 경우 허용
                 // GET대신 POST방식으로 바꾸면 403에서 발생
                 // GET과 POST둘다 쓰고싶으면 *사용
-               .allowedOrigins("http://localhost:3001")
+               .allowedOrigins("http://localhost:3000")
                .allowedMethods("*");
     }
 }

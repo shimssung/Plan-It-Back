@@ -1,4 +1,4 @@
-package com.example.calendartodo_pjt.Event.service;
+package com.example.calendartodo_pjt.Events.service;
 
 
 import java.util.List;
@@ -7,9 +7,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.calendartodo_pjt.Event.dao.EventMapper;
-import com.example.calendartodo_pjt.Event.domain.EventRequestDTO;
-import com.example.calendartodo_pjt.Event.domain.EventResponseDTO;
+import com.example.calendartodo_pjt.Events.dao.EventMapper;
+import com.example.calendartodo_pjt.Events.domain.EventRequestDTO;
+import com.example.calendartodo_pjt.Events.domain.EventResponseDTO;
 
 
 @Service
@@ -19,10 +19,12 @@ public class EventService {
     @Autowired
     private EventMapper eventMapper;
 
-    public List<EventResponseDTO> findAll() {
+    public List<EventResponseDTO> findAll(Map<String, String> map) {
         // 의존관계 주입이 제대로 되었는지 확인
         System.out.println("debug >>> service findAll " + eventMapper);
-        return eventMapper.findAllRow() ;
+        List<EventResponseDTO> reslut = eventMapper.findAllRow(map) ;
+        System.out.println("service findALL reslut " + reslut.size());
+        return reslut ;
     }
 
     public List<EventResponseDTO> findlist(Map<String, String> map) {

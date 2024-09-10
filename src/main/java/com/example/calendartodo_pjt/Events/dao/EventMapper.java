@@ -1,4 +1,4 @@
-package com.example.calendartodo_pjt.Event.dao;
+package com.example.calendartodo_pjt.Events.dao;
 
 
 import java.util.List;
@@ -6,14 +6,14 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.example.calendartodo_pjt.Event.domain.EventRequestDTO;
-import com.example.calendartodo_pjt.Event.domain.EventResponseDTO;
+import com.example.calendartodo_pjt.Events.domain.EventRequestDTO;
+import com.example.calendartodo_pjt.Events.domain.EventResponseDTO;
 
 
 @Mapper
 public interface EventMapper {
 
-    public List<EventResponseDTO> findAllRow() ;
+    public List<EventResponseDTO> findAllRow(Map<String, String> map) ;
 
     public List<EventResponseDTO> findlist(Map<String, String> map) ;
 

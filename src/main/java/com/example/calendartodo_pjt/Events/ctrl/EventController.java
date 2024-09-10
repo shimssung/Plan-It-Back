@@ -1,4 +1,4 @@
-package com.example.calendartodo_pjt.Event.ctrl;
+package com.example.calendartodo_pjt.Events.ctrl;
 
 
 import java.util.HashMap;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.calendartodo_pjt.Event.domain.EventRequestDTO;
-import com.example.calendartodo_pjt.Event.domain.EventResponseDTO;
-import com.example.calendartodo_pjt.Event.service.EventService;
+import com.example.calendartodo_pjt.Events.domain.EventRequestDTO;
+import com.example.calendartodo_pjt.Events.domain.EventResponseDTO;
+import com.example.calendartodo_pjt.Events.service.EventService;
 
 
 @RestController
@@ -28,14 +28,17 @@ public class EventController {
     @Autowired
     private EventService eventService;
 
-    @GetMapping("/index")
-    public ResponseEntity<Object> landing() {
-        System.out.println("client end point : /events/index" + eventService);
-        List<EventResponseDTO> list = eventService.findAll();
+    @GetMapping("/index/{currentYearMonth}")
+    public ResponseEntity<Object> landing(@PathVariable("currentYearMonth") String currentYearMonth) {
+        System.out.println("client end point : /events/index/{currentYearMonth}" + eventService);
+        System.out.println("오늘날짜 " + currentYearMonth);
+        Map<String, String> map = new HashMap<>();
+        map.put("currentYearMonth", currentYearMonth);
+        List<EventResponseDTO> list = eventService.findAll(map);
         System.out.println("result size : " + list.size());
         if (list.size() == 0) {
-	            Map<String, String> map = new HashMap<>();
-	            map.put("info", "저장된 데이터가 존재하지 않습니다.");
+	            // Map<String, String> msg = new HashMap<>();
+	            // msg.put("info", "저장된 데이터가 존재하지 않습니다.");
 	            return new ResponseEntity<>(list, HttpStatus.OK);
 	        } else {
 	            return new ResponseEntity<>(list, HttpStatus.OK);
@@ -43,26 +46,26 @@ public class EventController {
     }
 
     @GetMapping("/viewday/{dateId}")
-	    public ResponseEntity<Object> view(@PathVariable("dateId") String dateId) {
-	        System.out.println("client end point : /events/view/{id}");
-	        System.out.println("params = " + dateId);
-	        Map<String, String> map = new HashMap<>();
-	        map.put("id", dateId);
-            List<EventResponseDTO> list = eventService.findlist(map);
-            System.out.println("client list data : " + list);
-	        return new ResponseEntity<>(list, HttpStatus.OK);
+    public ResponseEntity<Object> view(@PathVariable("dateId") String dateId) {
+        System.out.println("client end point : /events/view/{id}");
+        System.out.println("params = " + dateId);
+        Map<String, String> map = new HashMap<>();
+        map.put("id", dateId);
+        List<EventResponseDTO> list = eventService.findlist(map);
+        System.out.println("client list data : " + list);
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping("/save")
-    public String save(@RequestBody EventRequestDTO params) {
+    public ResponseEntity<String> save(@RequestBody EventRequestDTO params) {
         System.out.println("client end point : /events/save ");
         System.out.println(params);
         eventService.save(params);
-        return null;
+        return new ResponseEntity<>("Event saved successfully", HttpStatus.CREATED);
     }
 
     @GetMapping("/gettodo/{eventid}")
-    public ResponseEntity<Object> view(@PathVariable("eventid") Integer eventid) {
+    public ResponseEntity<Object> gettodo(@PathVariable("eventid") Integer eventid) {
         System.out.println("client end point : /events/gettodo/{eventid}");
         System.out.println("params = " + eventid);
         Map<String, Integer> map = new HashMap<>();

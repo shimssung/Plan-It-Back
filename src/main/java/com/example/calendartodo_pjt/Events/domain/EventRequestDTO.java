@@ -1,4 +1,4 @@
-package com.example.calendartodo_pjt.Event.domain;
+package com.example.calendartodo_pjt.Events.domain;
 
 import java.time.LocalDate;
 import lombok.Data;
