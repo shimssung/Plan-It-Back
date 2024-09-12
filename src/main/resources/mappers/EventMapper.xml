@@ -61,14 +61,20 @@
 
     <!-- savehistoryAll --> 
 
-    <insert id="savehistoryAll"
+    <insert id="savehistoryAll" 
             parameterType="java.util.List">
-        INSERT IGNORE INTO TB_CALENDAR_EVENT(DAY, TITLE, COLOR)
-        VALUES
-        <foreach collection="list" item="item" separator=",">
-            (#{item.locdate}, #{item.dateName}, "orange")
+        INSERT INTO TB_CALENDAR_EVENT (DAY, TITLE, COLOR)
+        <foreach collection="list" item="item" separator=" UNION ALL ">
+            SELECT #{item.locdate}, #{item.dateName}, 'orange'
+            FROM DUAL
+            WHERE NOT EXISTS (
+                SELECT 1 FROM TB_CALENDAR_EVENT 
+                WHERE DAY = #{item.locdate} AND TITLE = #{item.dateName}
+            )
         </foreach>
     </insert>
+
+
 
     
     </mapper>
