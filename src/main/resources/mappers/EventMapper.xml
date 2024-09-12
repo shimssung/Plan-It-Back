@@ -50,4 +50,25 @@
         WHERE       ID = #{ id }
     </delete>
 
+    <!-- updateRow --> 
+
+    <update id="updateRow"
+            parameterType="com.example.calendartodo_pjt.Events.domain.EventRequestDTO">
+        UPDATE TB_CALENDAR_EVENT
+        SET    TITLE = #{ title }, CONTENT = #{ content }, COLOR = #{ color }
+        WHERE  ID    = #{ id }
+    </update>
+
+    <!-- savehistoryAll --> 
+
+    <insert id="savehistoryAll"
+            parameterType="java.util.List">
+        INSERT IGNORE INTO TB_CALENDAR_EVENT(DAY, TITLE, COLOR)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.locdate}, #{item.dateName}, "orange")
+        </foreach>
+    </insert>
+
+    
     </mapper>

@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class EventRequestDTO {
+    private int         id ;
     private LocalDate  day ;
     private String title ;
     private String content ;

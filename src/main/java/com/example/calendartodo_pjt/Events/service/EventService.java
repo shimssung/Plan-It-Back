@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.example.calendartodo_pjt.Events.dao.EventMapper;
 import com.example.calendartodo_pjt.Events.domain.EventRequestDTO;
 import com.example.calendartodo_pjt.Events.domain.EventResponseDTO;
+import com.example.calendartodo_pjt.openapi.domain.HistoryDaysDTO;
 
 
 @Service
@@ -46,6 +47,16 @@ public class EventService {
     public void delete(Map<String, Integer> map) {
         System.out.println("debug >>> service delete " + eventMapper);
         eventMapper.deleteRow(map);
+    }
+
+    public void update(EventRequestDTO params) {
+        System.out.println("debug >>> service update " + eventMapper);
+        eventMapper.updateRow(params);
+    }
+
+    public void savehistory(List<HistoryDaysDTO> params) {
+        System.out.println("debug >>> service historysave " + eventMapper);
+        eventMapper.savehistoryAll(params);
     }
 
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -83,5 +84,14 @@ public class EventController {
         map.put("id", id);
         eventService.delete(map);
         return new ResponseEntity<>(id+"번 데이터 삭제완료",HttpStatus.OK);
+    }
+
+    // update
+    @PutMapping("/update")
+    public ResponseEntity<Void> update(@RequestBody EventRequestDTO params) {
+        System.out.println("client endpoint : /events/update ");
+        System.out.println("params : " + params);
+        eventService.update(params);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
