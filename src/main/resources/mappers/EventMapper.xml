@@ -8,8 +8,8 @@
 
     <insert id="insertRow"
             parameterType="com.example.calendartodo_pjt.Events.domain.EventRequestDTO">
-        INSERT INTO TB_CALENDAR_EVENT(DAY, TITLE, CONTENT, COLOR)
-        VALUES( #{day}, #{title}, #{content}, #{color})
+        INSERT INTO TB_CALENDAR_EVENT(DAY, TITLE, CONTENT, COLOR, address) 
+        VALUES( #{day}, #{title}, #{content}, #{color}, #{address})
     </insert>     
 
     <!-- findAllRow --> 
@@ -17,7 +17,7 @@
     <select id="findAllRow"
             parameterType="java.util.HashMap"
             resultType="com.example.calendartodo_pjt.Events.domain.EventResponseDTO">
-        SELECT ID, DAY, TITLE, CONTENT, COLOR
+        SELECT ID, DAY, TITLE, CONTENT, COLOR, address
         FROM   TB_CALENDAR_EVENT 
         WHERE  DAY LIKE CONCAT(#{currentYearMonth}, '%')
      </select>
@@ -27,7 +27,7 @@
     <select id="findlist"
             parameterType="java.util.HashMap"
             resultType="com.example.calendartodo_pjt.Events.domain.EventResponseDTO">
-        SELECT ID, DAY, TITLE, CONTENT, COLOR
+        SELECT ID, DAY, TITLE, CONTENT, COLOR, address
         FROM   TB_CALENDAR_EVENT    
         WHERE  DAY = #{ id }
     </select>
@@ -37,7 +37,7 @@
     <select id="findRow"
             parameterType="java.util.HashMap"
             resultType="com.example.calendartodo_pjt.Events.domain.EventResponseDTO">
-        SELECT ID, DAY, TITLE, CONTENT, COLOR
+        SELECT ID, DAY, TITLE, CONTENT, COLOR, address
         FROM   TB_CALENDAR_EVENT    
         WHERE  ID = #{ id }    
     </select>    
@@ -55,7 +55,7 @@
     <update id="updateRow"
             parameterType="com.example.calendartodo_pjt.Events.domain.EventRequestDTO">
         UPDATE TB_CALENDAR_EVENT
-        SET    TITLE = #{ title }, CONTENT = #{ content }, COLOR = #{ color }
+        SET    TITLE = #{ title }, CONTENT = #{ content }, COLOR = #{ color }, address = #{ address }
         WHERE  ID    = #{ id }
     </update>
 

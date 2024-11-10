@@ -13,4 +13,5 @@ public class EventResponseDTO {
     private String      title ;
     private String      content ;
     private String      color ;
+    private String      address ;
 }

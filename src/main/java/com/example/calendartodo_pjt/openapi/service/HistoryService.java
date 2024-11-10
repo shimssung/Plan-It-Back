@@ -47,10 +47,12 @@ public class HistoryService {
         List<HistoryDaysDTO> list = new ArrayList<>();
 
         try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document document = builder.parse(new InputSource(new StringReader(xmlData)));
+            // DocumentBuilderFactory와 DocumentBuilder를 사용하여 XML 데이터를 파싱할 준비
+            DocumentBuilderFactory factory  = DocumentBuilderFactory.newInstance();
+            DocumentBuilder        builder  = factory.newDocumentBuilder();
+            Document               document = builder.parse(new InputSource(new StringReader(xmlData))); // XML 문자열을 InputSource로 변환하여 파싱할 준비
 
+            // XML 문서에서 "item" 태그를 가진 모든 요소를 찾아 NodeList로 반환
             NodeList itemListNodes = document.getElementsByTagName("item");
             System.out.println("service itemlist node " + itemListNodes.getLength());
 
@@ -84,6 +86,8 @@ public class HistoryService {
         return list;
     }
 
+    // 특정 태그(예: "dateName" 또는 "locdate")의 텍스트 값을 추출하는 유틸리티 메서드
+    // 주어진 tagName을 가진 노드를 찾고, 그 노드의 텍스트 내용을 반환합니다. 만약 해당 태그가 없으면 null을 반환
     private String getElementValue(Element element, String tagName) {
         NodeList nodeList = element.getElementsByTagName(tagName);
         if (nodeList.getLength() > 0) {

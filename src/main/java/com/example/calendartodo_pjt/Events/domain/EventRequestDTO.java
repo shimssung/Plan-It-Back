@@ -10,6 +10,7 @@ public class EventRequestDTO {
     private String title ;
     private String content ;
     private String color ;
+    private String address ;
 
 
 }
